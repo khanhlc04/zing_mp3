@@ -14,6 +14,11 @@ export default {
       xl: '1280px',
       '2xl': '1280px',
     },
+    extend: {
+      colors: {
+        primary: "#00ADEF"
+      }
+    }
   },
   plugins: [],
 } satisfies Config;
