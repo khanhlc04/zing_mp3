@@ -1,3 +1,5 @@
+
+import { Section3 } from "@/app/components/Section/HomeSection/Section3";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function SingerPage() {
+
   return (
     <>
-      <h1>Trang Danh Sách Ca Sĩ</h1>
+     <Section3 home={false} />
     </>
   );
 }

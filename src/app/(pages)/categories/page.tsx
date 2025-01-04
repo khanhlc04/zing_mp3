@@ -1,3 +1,4 @@
+import { Section2 } from "@/app/components/Section/HomeSection/Section2";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 export default function CategoryPage() {
   return (
     <>
-      <h1>Trang Danh Mục</h1>
+      <Section2 home={false}/>
     </>
   );
 }

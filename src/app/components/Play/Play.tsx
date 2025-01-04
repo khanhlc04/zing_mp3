@@ -9,9 +9,9 @@ export const Play = () => {
           <div className='flex gap-x-[67.4px] items-center'>
             <div className='flex gap-[12.88px] items-center w-[218.42px]'>
               <img
-                src="/demo/img1.jpg"
+                src="/demo/image_1.png"
                 alt="demo"
-                className='rounded-[14px] w-[48.54px] h-[49px] object-fit'
+                className='rounded-[14px] w-[48.54px] h-[49px] object-cover'
               />
               <div className='flex flex-col gap-y-[2px]'>
                 <span className='font-[700] text-[15px] leading-[18px] text-white'>

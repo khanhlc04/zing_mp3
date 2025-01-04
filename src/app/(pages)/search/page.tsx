@@ -1,3 +1,5 @@
+import { SongItem2 } from "@/app/components/Song/SongItem2";
+import { Title } from "@/app/components/Title/Title";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,9 +8,57 @@ export const metadata: Metadata = {
 };
 
 export default function SearchPage() {
+  const data = [
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    },
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    },
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    },
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    },
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    },
+    {
+      image: '/demo/image_1.png',
+      title: "Cô Phòng",
+      singer: "Hồ Quang Hiếu",
+      time: "4:32"
+    }
+  ]
+  
   return (
     <>
-      <h1>Trang Tìm Kiếm</h1>
+      <div className="">
+        <div className="container mx-auto">
+          <Title text='Kết Quả Tìm Kiếm' />
+          <div className='flex flex-col gap-y-[10px]'>
+            {data && data.map((item, index) => (
+              <SongItem2 key={index} item={item} />
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

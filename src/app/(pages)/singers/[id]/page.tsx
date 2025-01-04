@@ -1,3 +1,5 @@
+import { CategoryDetailSection2 } from "@/app/components/Section/CategorySection/CategoryDetailSection2";
+import { SingerDetailSection1 } from "@/app/components/Section/SingerSection/SingerDetailSection1";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,10 +7,14 @@ export const metadata: Metadata = {
   description: "Trang Chi Tiết Ca Sĩ ứng dụng nghe nhạc trực tuyến",
 };
 
-export default function SingerDetailPage() {
+export default async function SingerDetailPage(props: {params: any}) {
+  const { id } = await props.params;
+
   return (
     <>
-      <h1>Trang Chi Tiết Ca Sĩ</h1>
+      <SingerDetailSection1 id={id}/>
+
+      <CategoryDetailSection2 idCategory='' title='Danh Sách Bài Hát' idSong='' idSinger={id} />
     </>
   );
 }
