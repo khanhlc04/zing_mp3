@@ -59,7 +59,7 @@ export const CategoryDetailSection2 = (props: {
     const listSongs: any[] = [];
     const songRef = ref(dbFirebase, 'songs');
     if (wishlist) {
-      onAuthStateChanged(authFirebase, async (user) => {
+      onAuthStateChanged(authFirebase, (user) => {
         if (user) {
           const userId = user.uid;
 
