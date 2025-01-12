@@ -27,15 +27,10 @@ export const Section3 = (props: { home: boolean }) => {
         const key = item.key;
         const data = item.val();
 
-        if (home && listSinger.length < 5) {
-          listSinger.push({
-            id: key,
-            description: data.description,
-            image: data.image,
-            title: data.title,
-            link: `singers/${key}`
-          });
-        } else if (!home) {
+        if (
+          home && listSinger.length < 5 ||
+          !home
+        ) {
           listSinger.push({
             id: key,
             description: data.description,
