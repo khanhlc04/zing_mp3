@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const CartItem = (props: { item: any }) => {
   const { item } = props;
 

@@ -15,6 +15,7 @@ interface Category {
   audio: string;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const Section2 = (props: {home: Boolean}) => {
   const { home } = props;
   const [dataSection2, setDataSection2] = useState<Category[]>([]);

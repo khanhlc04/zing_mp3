@@ -11,6 +11,7 @@ interface Singer {
   description: string;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const SingerDetailSection1 = (props: { id: string }) => {
   const { id } = props;
   const [dataSinger, setDataSinger] = useState<Singer>();

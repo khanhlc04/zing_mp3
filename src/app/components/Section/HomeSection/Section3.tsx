@@ -14,6 +14,7 @@ interface Singer {
   link: string;
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const Section3 = (props: { home: boolean }) => {
   const { home } = props;
   const [dataSection3, setDataSection3] = useState<Singer[]>([]);

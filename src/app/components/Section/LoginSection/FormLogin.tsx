@@ -5,6 +5,7 @@ import { Title } from "../../Title/Title"
 import { authFirebase } from "@/app/firebaseConfig";
 import { useRouter } from "next/navigation";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const FormLogin = () => {
   const router = useRouter();
 

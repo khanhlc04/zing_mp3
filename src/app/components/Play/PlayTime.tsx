@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const PlayTime = () => {
   const handleChange = (event: any) => {
     const elementTotal = event.target;

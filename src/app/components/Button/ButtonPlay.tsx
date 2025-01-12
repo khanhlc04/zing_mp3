@@ -2,6 +2,7 @@
 
 import { FaPause, FaPlay } from "react-icons/fa"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const ButtonPlay = (props: {
   item: any,
   className: string

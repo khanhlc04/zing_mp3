@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "Trang Chi Tiết Bài Hát ứng dụng nghe nhạc trực tuyến",
 };
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default async function SongDetailPage(props: {params: any}) {
   const { id } = await props.params;
 

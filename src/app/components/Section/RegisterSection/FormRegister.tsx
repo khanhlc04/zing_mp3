@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, set } from "firebase/database";
 import { useRouter } from "next/navigation";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const FormRegister = () => {
   const router = useRouter();
 

@@ -16,6 +16,7 @@ interface Song {
   wishlist: string[];
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const Section1 = () => {
   const [dataSection1, setDataSection1] = useState<Song[]>([]);
 

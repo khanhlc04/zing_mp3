@@ -6,6 +6,7 @@ import { ref, runTransaction } from "firebase/database";
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const ButtonHeart = (props: {
   item: any,
   className: string

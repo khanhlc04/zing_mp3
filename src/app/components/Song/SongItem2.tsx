@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ButtonPlay } from "../Button/ButtonPlay";
 import { ButtonHeart } from "../Button/ButtonHeart";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const SongItem2 = (props: { item: any }) => {
   const { item } = props;
 

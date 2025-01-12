@@ -2,6 +2,7 @@
 
 import { FaPause, FaPlay, FaStepBackward, FaStepForward } from "react-icons/fa"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const PlayAction = () => {
   const handlePlay = () => {
     const elementPlayAudio = document.querySelector(".play-audio");

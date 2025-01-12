@@ -2,6 +2,7 @@
 
 import { FaVolumeHigh } from "react-icons/fa6"
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const PlayVolumn = () => {
   const handleChange = (event: any) => {
     const elementTotal = event.target;

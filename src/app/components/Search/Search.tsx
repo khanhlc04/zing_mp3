@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const Search = () => {
   const router = useRouter();
   const searchParams = useSearchParams();

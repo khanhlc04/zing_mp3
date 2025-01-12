@@ -19,6 +19,7 @@ interface Song {
   wishlist: string[];
 }
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const CategoryDetailSection2 = (props: {
   idCategory: string,
   title: string,
