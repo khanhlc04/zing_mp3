@@ -1,5 +1,4 @@
-import { SongItem2 } from "@/app/components/Song/SongItem2";
-import { Title } from "@/app/components/Title/Title";
+import { CategoryDetailSection2 } from "@/app/components/Section/CategorySection/CategoryDetailSection2";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,57 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function SearchPage() {
-  const data = [
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    },
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    },
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    },
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    },
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    },
-    {
-      image: '/demo/image_1.png',
-      title: "Cô Phòng",
-      singer: "Hồ Quang Hiếu",
-      time: "4:32"
-    }
-  ]
-  
   return (
     <>
-      <div className="">
-        <div className="container mx-auto">
-          <Title text='Kết Quả Tìm Kiếm' />
-          <div className='flex flex-col gap-y-[10px]'>
-            {data && data.map((item, index) => (
-              <SongItem2 key={index} item={item} />
-            ))}
-          </div>
-        </div>
-      </div>
+       <CategoryDetailSection2 idCategory='' title='Kết Quả Tìm Kiếm' idSong='' idSinger='' search={true} />
     </>
   );
 }

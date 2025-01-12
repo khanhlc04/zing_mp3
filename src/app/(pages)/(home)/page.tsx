@@ -41,7 +41,7 @@ export default function Home() {
 
       <Section2 home={true}/>
 
-      <Section3 />
+      <Section3 home={true}/>
     </>
   );
 }

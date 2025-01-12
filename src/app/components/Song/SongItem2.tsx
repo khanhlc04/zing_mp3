@@ -1,14 +1,18 @@
 import Link from "next/link";
-import { FaPlay, FaRegHeart } from "react-icons/fa"
+import { ButtonPlay } from "../Button/ButtonPlay";
+import { ButtonHeart } from "../Button/ButtonHeart";
 
 export const SongItem2 = (props: { item: any }) => {
   const { item } = props;
 
   return (
     <>
-      <div className="flex items-center justify-between bg-[#212121] py-[10px] px-[18px] rounded-[15px]">
+      <div className="flex items-center justify-between bg-[#212121] py-[10px] px-[18px] rounded-[15px]" song-id={item.id}>
         <div className="w-[40%] flex items-center">
-          <FaPlay className='text-white' />
+          <ButtonPlay 
+            item={item} 
+            className="text-white inner-button-play-2"
+          />
           <div className="w-[42px] aspect-square rounded-[8px] truncate mx-[12px]">
             <img
               src={item.image}
@@ -33,9 +37,7 @@ export const SongItem2 = (props: { item: any }) => {
           <div className="font-[400] text-[14px] text-white mr-[18px]">
             {item.time}
           </div>
-          <button className="text-[20px] text-white">
-            <FaRegHeart />
-          </button>
+          <ButtonHeart item={item} className='text-[20px] inner-button-heart-2'/>
         </div>
       </div>
     </>

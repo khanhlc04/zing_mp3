@@ -12,6 +12,8 @@ interface Song {
   singer: string;
   link: string;
   listen: number;
+  audio: string;
+  wishlist: string[];
 }
 
 export const Section1 = () => {
@@ -42,6 +44,8 @@ export const Section1 = () => {
               singer: singerName.join(", "),
               link: `song/${key}`,
               listen: dataSong.listen,
+              audio: dataSong.audio,
+              wishlist: dataSong.wishlist
             });
           }
         }

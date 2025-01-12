@@ -29,3 +29,48 @@
   box-shadow: 0px 0px 8px 0px #000000EB;
 }
 /* End Range */
+
+.play-audio .inner-button-play .inner-icon-pause {
+  display: none;
+}
+
+.play-audio .inner-button-play.active .inner-icon-play {
+  display: none;
+}
+
+.play-audio .inner-button-play.active .inner-icon-pause {
+  display: block;
+}
+
+[song-id].active .inner-button-play {
+  background-color: #00ADEF;
+  border-color: #00ADEF;
+}
+
+[song-id] .inner-button-play .inner-icon-pause,
+[song-id] .inner-button-play-2 .inner-icon-pause{
+  display: none;
+}
+
+[song-id].active .inner-button-play .inner-icon-play,
+[song-id].active .inner-button-play-2 .inner-icon-play{
+  display: none;
+}
+
+[song-id].active .inner-button-play .inner-icon-pause,
+[song-id].active .inner-button-play-2 .inner-icon-pause{
+  display: block;
+}
+
+.inner-button-heart.active{
+  border: 1px solid #00ADEF;
+  background-color: #00ADEF;
+}
+
+.inner-button-heart-2{
+  color: white
+}
+
+.inner-button-heart-2.active {
+  color: #00ADEF;
+}

@@ -1,10 +1,25 @@
 "use client";
 
+import { authFirebase } from "@/app/firebaseConfig";
+import { onAuthStateChanged } from "firebase/auth";
 import Link from "next/link"
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { FaHouse, FaMusic, FaPodcast, FaHeart, FaRightFromBracket, FaUser, FaUserPlus } from "react-icons/fa6";
+import { MenuItem } from "./MenuItem";
 
 export const Sider = () => {
+  const [isLogin, setIsLogin] = useState<boolean>();
+
+  useEffect(() => {
+    onAuthStateChanged(authFirebase, (user) => {
+      if (user) {
+        setIsLogin(true);
+      } else {
+        setIsLogin(false);
+      }
+    });
+  }, [])
+
   const menu = [
     {
       icon: <FaHouse />,
@@ -23,27 +38,29 @@ export const Sider = () => {
     },
     {
       icon: <FaHeart />,
-      title: "Yêu Thích",
-      link: "/wishlist"
+      title: "Bài Hát Yêu Thích",
+      link: "/wishlist",
+      isLogged: true
     },
     {
       icon: <FaRightFromBracket />,
       title: "Đăng Xuất",
-      link: "/logout"
+      link: "/logout",
+      isLogged: true
     },
     {
       icon: <FaUser />,
       title: "Đăng Nhập",
-      link: "/login"
+      link: "/login",
+      isLogged: false
     },
     {
       icon: <FaUserPlus />,
       title: "Đăng Ký",
-      link: "/register"
+      link: "/register",
+      isLogged: false
     },
   ]
-
-  const pathName = usePathname();
 
   return (
     <>
@@ -64,18 +81,7 @@ export const Sider = () => {
             <ul className='flex flex-col gap-[30px]'>
               {menu &&
                 menu.map((item, index) => (
-                  <li key={index} className=''>
-                    <Link
-                      href={item.link}
-                      className={"flex gap-x-[20px] items-center hover:text-primary " + (pathName === item.link ? "text-primary" : "text-white")}>
-                      <span className='text-[22px]'>
-                        {item.icon}
-                      </span>
-                      <span className='text-[16px] font-[700] leading-[19.2px]'>
-                        {item.title}
-                      </span>
-                    </Link>
-                  </li>
+                  <MenuItem item={item} isLogin={isLogin} key={index}/>
                 ))}
             </ul>
           </nav>

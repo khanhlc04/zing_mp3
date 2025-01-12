@@ -12,6 +12,7 @@ interface Category {
   image: string;
   title: string;
   link: string;
+  audio: string;
 }
 
 export const Section2 = (props: {home: Boolean}) => {
@@ -26,21 +27,14 @@ export const Section2 = (props: {home: Boolean}) => {
         const key = item.key;
         const data = item.val();
 
-        if (home && listCategory.length < 5) {
+        if (home && listCategory.length < 5 || !home) {
           listCategory.push({
             id: key,
             description: data.description,
             image: data.image,
             title: data.title,
-            link: `categories/${key}`
-          });
-        } else if(!home){
-          listCategory.push({
-            id: key,
-            description: data.description,
-            image: data.image,
-            title: data.title,
-            link: `categories/${key}`
+            link: `categories/${key}`,
+            audio: data.audio
           });
         }
       });
@@ -52,7 +46,11 @@ export const Section2 = (props: {home: Boolean}) => {
     <>
       <div className="mb-[30px]">
         <div className='container mx-auto'>
-          <Title text="Danh Mục Nổi Bật" />
+          {home ? 
+            (<Title text="Danh Mục Nổi Bật" />) : 
+            (<Title text="Danh Mục Bài Hát" />)
+          }
+          
           <div className='grid grid-cols-5 gap-[20px]'>
             {dataSection2 && dataSection2.map((item, index) => (
               <CartItem key={index} item={item} />
