@@ -1,5 +1,6 @@
 import { CategoryDetailSection2 } from "@/app/components/Section/CategorySection/CategoryDetailSection2";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Trang Kết Quả Tìm Kiếm",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <>
-       <CategoryDetailSection2 idCategory='' title='Kết Quả Tìm Kiếm' idSong='' idSinger='' search={true} wishlist={false}/>
+      <Suspense>
+        <CategoryDetailSection2 idCategory='' title='Kết Quả Tìm Kiếm' idSong='' idSinger='' search={true} wishlist={false} />
+      </Suspense>
     </>
   );
 }

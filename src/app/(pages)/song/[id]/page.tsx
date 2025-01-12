@@ -4,6 +4,7 @@ import { SongSection2 } from "@/app/components/Section/SongSection/SongSection2"
 import { dbFirebase } from "@/app/firebaseConfig";
 import { get, ref } from "firebase/database";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Chi Tiết Bài Hát",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default async function SongDetailPage(props: {params: any}) {
+export default async function SongDetailPage(props: { params: any }) {
   const { id } = await props.params;
 
   let categoryId = '';
@@ -23,11 +24,13 @@ export default async function SongDetailPage(props: {params: any}) {
 
   return (
     <>
-      <SongSection1 id={id}/>
+      <SongSection1 id={id} />
 
-      <SongSection2 id={id}/>
+      <SongSection2 id={id} />
 
-      <CategoryDetailSection2 idCategory={categoryId} title='Bài Hát Cùng Danh Mục' idSong={id} idSinger='' search={false} wishlist={false}/>
+      <Suspense>
+        <CategoryDetailSection2 idCategory={categoryId} title='Bài Hát Cùng Danh Mục' idSong={id} idSinger='' search={false} wishlist={false} />
+      </Suspense>
     </>
   );
 }

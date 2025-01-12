@@ -1,6 +1,7 @@
 import { CategoryDetailSection1 } from "@/app/components/Section/CategorySection/CategoryDetailSection1";
 import { CategoryDetailSection2 } from "@/app/components/Section/CategorySection/CategoryDetailSection2";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Danh Sách Bài Hát Theo Danh Mục",
@@ -8,14 +9,16 @@ export const metadata: Metadata = {
 };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default async function CategoryDetailPage(props: {params: any}) {
+export default async function CategoryDetailPage(props: { params: any }) {
   const { id } = await props.params;
 
   return (
     <>
       <CategoryDetailSection1 id={id} />
 
-      <CategoryDetailSection2 idCategory={id} title='Danh Sách Bài Hát' idSong='' idSinger='' search={false} wishlist={false}/>
+      <Suspense>
+        <CategoryDetailSection2 idCategory={id} title='Danh Sách Bài Hát' idSong='' idSinger='' search={false} wishlist={false} />
+      </Suspense>
     </>
   );
 }

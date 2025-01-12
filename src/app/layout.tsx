@@ -3,6 +3,7 @@ import "./globals.css";
 import { Play } from "./components/Play/Play";
 import { Sider } from "./components/Sider/Sider";
 import { Search } from "./components/Search/Search";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Zing MP3",
@@ -23,7 +24,9 @@ export default function RootLayout({
               <Sider />
             </div>
             <div className="flex-1 ml-[20px]">
-              <Search />
+              <Suspense>
+                <Search />
+              </Suspense>
               <main className="mt-[30px] mb-[150px]">
                 {children}
               </main>
