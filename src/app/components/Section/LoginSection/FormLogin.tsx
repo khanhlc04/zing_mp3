@@ -24,7 +24,10 @@ export const FormLogin = () => {
         } else {
           alert("Sai Email và Mật Khẩu!")
         }
-      })
+      }).catch((error) => {
+        console.error("Error signing in:", error);
+        alert(error.message); // Hiển thị lỗi khi đăng nhập thất bại
+      });
     }
   }
   return (
