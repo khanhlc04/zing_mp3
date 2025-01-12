@@ -16,7 +16,7 @@ interface Category {
 }
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const Section2 = (props: {home: Boolean}) => {
+export const Section2 = (props: {home: boolean}) => {
   const { home } = props;
   const [dataSection2, setDataSection2] = useState<Category[]>([]);
 

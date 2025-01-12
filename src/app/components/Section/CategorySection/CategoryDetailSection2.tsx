@@ -25,8 +25,8 @@ export const CategoryDetailSection2 = (props: {
   title: string,
   idSong: string,
   idSinger: string,
-  search: Boolean,
-  wishlist: Boolean
+  search: boolean,
+  wishlist: boolean
 }) => {
   const searchParams = useSearchParams();
   const keyword = searchParams.get("keyword") || "";

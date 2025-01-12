@@ -21,7 +21,7 @@ export const SongSection1 = (props: { id: string }) => {
       const data = item.val();
 
       if (data.singerId) {
-        let singers: string[] = [];
+        const singers: string[] = [];
         const singerIds = data.singerId;
         for(const singerId of singerIds) {
           const singerRef = ref(dbFirebase, '/singers/' + singerId);

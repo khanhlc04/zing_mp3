@@ -8,7 +8,7 @@ import { Title } from "../../Title/Title";
 
 export const SongSection2 = (props: { id: string }) => {
   const { id } = props; 
-  const [lyric, setLyric] = useState<String>();
+  const [lyric, setLyric] = useState<string>();
 
   useEffect(() => {
     const songRef = ref(dbFirebase, '/songs/' + id);
