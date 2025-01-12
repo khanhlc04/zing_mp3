@@ -14,7 +14,7 @@ export default async function SingerDetailPage(props: {params: any}) {
     <>
       <SingerDetailSection1 id={id}/>
 
-      <CategoryDetailSection2 idCategory='' title='Danh Sách Bài Hát' idSong='' idSinger={id} />
+      <CategoryDetailSection2 idCategory='' title='Danh Sách Bài Hát' idSong='' idSinger={id} search={false} wishlist={false} />
     </>
   );
 }

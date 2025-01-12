@@ -26,7 +26,7 @@ export default async function SongDetailPage(props: {params: any}) {
 
       <SongSection2 id={id}/>
 
-      <CategoryDetailSection2 idCategory={categoryId} title='Bài Hát Cùng Danh Mục' idSong={id} idSinger=''/>
+      <CategoryDetailSection2 idCategory={categoryId} title='Bài Hát Cùng Danh Mục' idSong={id} idSinger='' search={false} wishlist={false}/>
     </>
   );
 }

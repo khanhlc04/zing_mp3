@@ -14,7 +14,7 @@ export default async function CategoryDetailPage(props: {params: any}) {
     <>
       <CategoryDetailSection1 id={id} />
 
-      <CategoryDetailSection2 idCategory={id} title='Danh Sách Bài Hát' idSong='' idSinger='' search={false}/>
+      <CategoryDetailSection2 idCategory={id} title='Danh Sách Bài Hát' idSong='' idSinger='' search={false} wishlist={false}/>
     </>
   );
 }

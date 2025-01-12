@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function SearchPage() {
   return (
     <>
-       <CategoryDetailSection2 idCategory='' title='Kết Quả Tìm Kiếm' idSong='' idSinger='' search={true} />
+       <CategoryDetailSection2 idCategory='' title='Kết Quả Tìm Kiếm' idSong='' idSinger='' search={true} wishlist={false}/>
     </>
   );
 }
