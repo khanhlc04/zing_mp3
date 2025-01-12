@@ -57,7 +57,7 @@ export const FormRegister = () => {
             </span>
           </div>
           <input
-            type="fullName"
+            type="text"
             name="fullName"
             id="fullName"
             placeholder="Ví dụ: Lê Văn A"
