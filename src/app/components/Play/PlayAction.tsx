@@ -8,19 +8,23 @@ export const PlayAction = () => {
     const elementPlayAudio = document.querySelector(".play-audio");
     const elementAudio: any = elementPlayAudio?.querySelector(".inner-audio");
     if (elementAudio) {
-     const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
+      const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
 
-     elementButtonPlay?.classList.toggle("active");
+      elementButtonPlay?.classList.toggle("active");
 
-     elementAudio.paused ? elementAudio.play() : elementAudio.pause();
+      if (elementAudio.paused) {
+        elementAudio.play();
+      } else {
+        elementAudio.pause();
+      }
     }
   }
 
   const handleBackward = () => {
     const currentSong = document.querySelector("[song-id].active");
-    if(currentSong){
+    if (currentSong) {
       const previousSong: any = currentSong.previousSibling;
-      if(previousSong) {
+      if (previousSong) {
         const buttonPlay: any = previousSong.querySelector(".inner-button-play");
         buttonPlay?.click();
 
@@ -28,7 +32,7 @@ export const PlayAction = () => {
         buttonPlay2?.click();
       } else {
         const firstSong = currentSong.parentElement?.lastElementChild;
-        if(firstSong){
+        if (firstSong) {
           const buttonPlay: any = firstSong.querySelector(".inner-button-play");
           buttonPlay?.click();
 
@@ -41,9 +45,9 @@ export const PlayAction = () => {
 
   const handleForward = () => {
     const currentSong = document.querySelector("[song-id].active");
-    if(currentSong){
+    if (currentSong) {
       const nextSong = currentSong.nextElementSibling;
-      if(nextSong) {
+      if (nextSong) {
         const buttonPlay: any = nextSong.querySelector(".inner-button-play");
         buttonPlay?.click();
 
@@ -51,7 +55,7 @@ export const PlayAction = () => {
         buttonPlay2?.click();
       } else {
         const firstSong = currentSong.parentElement?.firstElementChild;
-        if(firstSong){
+        if (firstSong) {
           const buttonPlay: any = firstSong.querySelector(".inner-button-play");
           buttonPlay?.click();
 
@@ -65,24 +69,24 @@ export const PlayAction = () => {
   return (
     <>
       <div className="flex items-center gap-x-[52px]">
-        <span 
+        <span
           className='text-white text-[16px] cursor-pointer'
           onClick={handleBackward}
         >
           <FaStepBackward />
         </span>
-        <span 
+        <span
           className="text-[16px] text-white w-[32px] h-[32px] bg-primary rounded-full flex items-center justify-center cursor-pointer inner-button-play"
           onClick={handlePlay}
         >
-          <FaPlay 
-            className="pl-[2px] inner-icon-play" 
+          <FaPlay
+            className="pl-[2px] inner-icon-play"
           />
-          <FaPause 
-            className="inner-icon-pause" 
+          <FaPause
+            className="inner-icon-pause"
           />
         </span>
-        <span 
+        <span
           className='text-white text-[16px] cursor-pointer'
           onClick={handleForward}
         >
