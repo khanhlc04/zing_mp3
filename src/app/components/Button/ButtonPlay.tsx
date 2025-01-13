@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { FaPause, FaPlay } from "react-icons/fa"
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -9,25 +10,50 @@ export const ButtonPlay = (props: {
 }) => {
   const { item, className } = props;
 
+  const elementPlayAudio = document.querySelector(".play-audio");
+  const elementAudio: any = elementPlayAudio?.querySelector(".inner-audio");
+  const elementSource = elementAudio?.querySelector("source");
+
+  const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
+
+  useEffect(() => {
+    const elementSong = document.querySelector(`[song-id="${item.id}"]`);
+    if(!elementAudio.paused && elementPlayAudio?.getAttribute("play-id") === elementSong?.getAttribute("song-id")){
+      elementSong?.classList.add("active");
+    }
+  }, [])
+
   const handlePlay = () => {
     const audio = item.audio;
 
-    const elementPlayAudio = document.querySelector(".play-audio");
-    const elementAudio: any = elementPlayAudio?.querySelector(".inner-audio");
-    const elementSource = elementAudio?.querySelector("source");
     if (elementSource) elementSource.src = audio;
     if (elementAudio) {
+      // Hiện khối phát nhạc
       elementPlayAudio?.classList.remove("hidden");
-      elementAudio.load();
-      elementAudio.play();
-
-      const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
-
       elementButtonPlay?.classList.add("active");
 
-      const elementButtonPlay2 = elementPlayAudio?.querySelector(".inner-button-play-2");
+      //Bỏ trạng thái active của nút play
+      const elementSongOld = document.querySelector("[song-id].active");
+      if (elementSongOld) elementSongOld?.classList.remove("active");
 
-      elementButtonPlay2?.classList.add("active");
+      const elementSong = document.querySelector(`[song-id="${item.id}"]`);
+      // Phát nhạc mới khi ấn phát bài hát khác bài hát trong khối nhạc
+      if(elementSongOld !== elementSong && elementSong?.getAttribute("song-id") !== elementPlayAudio?.getAttribute("play-id")){
+        elementAudio.load();
+        elementAudio.play();
+        elementSong?.classList.add("active");
+        // Tiếp tục phát nhạc khi ấn phát bài hát giống bài hát trong khối nhạc
+      } else if (elementSongOld !== elementSong && elementSong?.getAttribute("song-id") === elementPlayAudio?.getAttribute("play-id")) {
+        elementAudio.play();
+        elementSong?.classList.add("active");
+        // Dừng phát nhạc khi ấn phát bài hát giống bài hát trong khối nhạc
+      } else {
+        elementAudio.pause();
+        elementButtonPlay?.classList.remove("active");
+      }
+
+      // Set thuộc tính play-id cho khối nhạc 
+      elementPlayAudio?.setAttribute("play-id", item.id);
 
       const elementImage: any = elementPlayAudio?.querySelector(".inner-image");
       if (elementImage) elementImage.src = item.image;
@@ -58,15 +84,32 @@ export const ButtonPlay = (props: {
             elementPlayTimeTotal.value = currentTime;
           }
         }
+
+        elementAudio.onended = () => {
+          console.log("heheh")
+          if (elementSong) {
+            const nextSong = elementSong.nextElementSibling;
+            if (nextSong) {
+              const buttonPlay: any = nextSong.querySelector(".inner-button-play");
+              buttonPlay?.click();
+      
+              const buttonPlay2: any = nextSong.querySelector(".inner-button-play-2");
+              buttonPlay2?.click();
+            } else {
+              const firstSong = elementSong.parentElement?.firstElementChild;
+              if (firstSong) {
+                const buttonPlay: any = firstSong.querySelector(".inner-button-play");
+                buttonPlay?.click();
+      
+                const buttonPlay2: any = firstSong.querySelector(".inner-button-play-2");
+                buttonPlay2?.click();
+              }
+            }
+          }
+        }
       }
-
-      const elementSongOld = document.querySelector("[song-id].active");
-      if (elementSongOld) elementSongOld?.classList.remove("active");
-
-      const elementSong = document.querySelector(`[song-id="${item.id}"]`);
-      elementSong?.classList.add("active");
     }
-  }
+ }
 
   return (
     <>

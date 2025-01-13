@@ -12,16 +12,27 @@ export const PlayAction = () => {
 
       elementButtonPlay?.classList.toggle("active");
 
+      const playId = elementPlayAudio?.getAttribute("play-id");
+      const currentSong = document.querySelector(`[song-id="${playId}"]`);
+
       if (elementAudio.paused) {
+        currentSong?.classList.add("active");
         elementAudio.play();
       } else {
+        currentSong?.classList.remove("active");
         elementAudio.pause();
       }
     }
   }
 
   const handleBackward = () => {
-    const currentSong = document.querySelector("[song-id].active");
+    const elementPlayAudio = document.querySelector(".play-audio");
+    const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
+
+    elementButtonPlay?.classList.toggle("active");
+
+    const playId = elementPlayAudio?.getAttribute("play-id");
+    const currentSong = document.querySelector(`[song-id="${playId}"]`);
     if (currentSong) {
       const previousSong: any = currentSong.previousSibling;
       if (previousSong) {
@@ -44,7 +55,13 @@ export const PlayAction = () => {
   }
 
   const handleForward = () => {
-    const currentSong = document.querySelector("[song-id].active");
+    const elementPlayAudio = document.querySelector(".play-audio");
+    const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
+
+    elementButtonPlay?.classList.toggle("active");
+
+    const playId = elementPlayAudio?.getAttribute("play-id");
+    const currentSong = document.querySelector(`[song-id="${playId}"]`);
     if (currentSong) {
       const nextSong = currentSong.nextElementSibling;
       if (nextSong) {
