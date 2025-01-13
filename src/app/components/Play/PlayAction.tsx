@@ -29,7 +29,7 @@ export const PlayAction = () => {
     const elementPlayAudio = document.querySelector(".play-audio");
     const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
 
-    elementButtonPlay?.classList.toggle("active");
+    elementButtonPlay?.classList.add("active");
 
     const playId = elementPlayAudio?.getAttribute("play-id");
     const currentSong = document.querySelector(`[song-id="${playId}"]`);
@@ -58,7 +58,7 @@ export const PlayAction = () => {
     const elementPlayAudio = document.querySelector(".play-audio");
     const elementButtonPlay = elementPlayAudio?.querySelector(".inner-button-play");
 
-    elementButtonPlay?.classList.toggle("active");
+    elementButtonPlay?.classList.add("active");
 
     const playId = elementPlayAudio?.getAttribute("play-id");
     const currentSong = document.querySelector(`[song-id="${playId}"]`);

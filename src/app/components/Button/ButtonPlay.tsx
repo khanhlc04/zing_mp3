@@ -86,7 +86,6 @@ export const ButtonPlay = (props: {
         }
 
         elementAudio.onended = () => {
-          console.log("heheh")
           if (elementSong) {
             const nextSong = elementSong.nextElementSibling;
             if (nextSong) {
